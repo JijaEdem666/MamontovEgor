@@ -17,7 +17,7 @@ class KgToPounds:
             raise ValueError("Килограммы задаются только числами")
 
 
-weight  = KgToPounds(12)
+weight = KgToPounds(12)
 print(weight.to_pounds())
 print(weight.kg)
 weight.kg = 41
