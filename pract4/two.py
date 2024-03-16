@@ -1,17 +1,20 @@
 from tkinter import *
 
 
-def myClick():
-    label = Label(text="Нажата кнопка!", fg="white", background="orange")
-    label.place(x=300/2-50, y=150/2 + 25, width=100, height=50)
-
-
 root = Tk()
 root.geometry("300x150")
+root.config(bg="orange", padx=50, pady=20)
 
-root.config(background="orange")
+bt1 = Button(text="Hello World!", background="DodgerBlue", borderwidth=0, foreground="white", width=12, height=5)
+bt1.grid(row=0, column=0, padx=3, pady=3)
 
-bt = Button(text="Нажмите",command=myClick, bg="white", fg="DodgerBlue", borderwidth=1, relief="solid")
-bt.place(x=300/2 - 50, y=150/2 - 25, width=100, height=50)
+bt2 = Button(text="Меня зовут \n Мамонтов Егор", background="DodgerBlue", borderwidth=0, foreground="white", width=12, height=5)
+bt2.grid(row=1, column=1)
+
+l1 = Label(background="DodgerBlue",  borderwidth=1, foreground="white", width=12, height=5)
+l1.grid(row=0, column=1)
+
+l2 = Label(background="DodgerBlue", borderwidth=1, foreground="white", width=12, height=5)
+l2.grid(row=1, column=0)
 
 root.mainloop()
