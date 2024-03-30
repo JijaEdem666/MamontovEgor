@@ -29,7 +29,6 @@ class MainWindow(Frame):
         actualAmountLabel.grid(column=1, row=3)
         self.parent.bind("<Escape>", self.quit)
         self.updateUi()
-        self.parent.mainloop()
     def updateUi(self, *ignore):
         self.amount.set(str(round(self.principal.get() * (1 + self.rate.get() / 100) ** self.years.get(), 2)))
 
