@@ -33,6 +33,6 @@ class MainWindow(Frame):
     def updateUi(self, *ignore):
         self.amount.set(str(round(self.principal.get() * (1 + self.rate.get() / 100) ** self.years.get(), 2)))
 
-    def quit(self, event=None):
+    def quit(self, event=None) -> None:
         self.parent.destroy()
 
