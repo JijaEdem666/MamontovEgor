@@ -10,7 +10,7 @@ def square():
 
 
 def triangle():
-    c.create_polygon(x, y, x - 15, y + 30, x + 15, y + 30,
+    c.create_polygon(x, y + 30, x + 15, y, x + 30, y + 30,
                      fill='white', outline='black')
 
 
@@ -21,8 +21,8 @@ def popup(event):
     menu.post(event.x_root, event.y_root)
 
 
-x = 0
-y = 0
+x = 100
+y = 100
 
 root = Tk()
 c = Canvas(width=300, height=300, bg='white')
@@ -32,4 +32,5 @@ menu = Menu(tearoff=0)
 menu.add_command(label="Круг", command=circle)
 menu.add_command(label="Квадрат", command=square)
 menu.add_command(label="Треугольник", command=triangle)
+root.config(menu=menu)
 root.mainloop()
