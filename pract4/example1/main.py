@@ -1,6 +1,6 @@
 from tkinter import Tk, Button, Label
 
-from example1.newWindow import NewWindow
+from newWindow import NewWindow
 from func import Func
 
 
