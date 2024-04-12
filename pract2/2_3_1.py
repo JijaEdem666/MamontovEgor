@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.cm as cm
 
 plt.figure(figsize=(6, 6))
 plt.axes(projection='polar')
