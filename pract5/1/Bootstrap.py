@@ -1,6 +1,5 @@
 import config
 from MainApp import MainApp
-from tkinter import *
 
 
 class Bootstrap():

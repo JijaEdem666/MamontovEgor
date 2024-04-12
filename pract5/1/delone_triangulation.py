@@ -1,5 +1,7 @@
 import numpy as np
-def delone_triangulation(self,points, values, p, n):
+from scipy.spatial import Delaunay
+import inspect
+def delone_triangulation(points, values, p, n):
     #https://stackoverflow.com/questions/30373912/interpolation-with-delaunay-triangulation-n-dim
     # dimension of the problem (in this example I use 3D grid,
     # but the method works for any dimension n>=2)
@@ -15,11 +17,14 @@ def delone_triangulation(self,points, values, p, n):
     # create an object with triangulation
     tri = Delaunay(points)
     # find simplexes that contain interpolated points
+
     s = tri.find_simplex(p)
+
     # get the vertices for each simplex
-    v = tri.vertices[s]
+    v = tri.simplices[s]
     # get transform matrices for each simplex (see explanation bellow)
     m = tri.transform[s]
+
 
     # for each interpolated point p, mutliply the transform matrix by
     # vector p-r, where r=m[:,n,:] is one of the simplex vertices to which
@@ -37,6 +42,7 @@ def delone_triangulation(self,points, values, p, n):
     #Now, v contains indices of vertex points for each simplex and w holds corresponding weights.
     # To get the interpolated values p_values at set of points p,
     # we do (note: values must be NumPy array for this):
-    #for i in range(len(p)): p_values[i] = np.inner(values[v[i]], w[i])
-    p_values = np.einsum('ij,ij->i', values[v], w)
-    return p_values
+    p1 = [0] * len(p)
+    for i in range(len(p)): p1[i] = np.inner(values[v[i]], w[i])
+    #p_values = np.einsum('ij,ij->i', values[v], w)
+    return p1
