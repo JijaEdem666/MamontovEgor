@@ -1,7 +1,10 @@
+from tkinter import filedialog
+import config
 class CommonUtils:
 
     @staticmethod
-    def load_txt(file_name):
+    def load_txt():
+        file_name = filedialog.askopenfilename()
         with open(file_name, 'r', encoding='utf-8') as file:
             lines = file.readlines()
             index = 0
@@ -21,4 +24,6 @@ class CommonUtils:
                     low.append(float(linesplit[4]))
                     close.append(float(linesplit[5]))
         result_dict = {'date': date, 'open': open_, 'high': high, 'low': low, 'close': close}
-        return True, result_dict
+        config.res_dict = result_dict
+        print(config.res_dict)
+        config.mainApp.button_show.config(command=config.mainApp.show)

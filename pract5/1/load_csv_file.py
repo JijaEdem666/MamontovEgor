@@ -1,6 +1,7 @@
 import config
 from tkinter import filedialog
 import csv
+from ErrorWindow import ErrorWindow
 def load_file(self):
     # Загрузка csv
     filepath = filedialog.askopenfilename()
